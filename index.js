@@ -35,13 +35,12 @@ client.on('message', message =>{
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-    const voiceChannel = message.member.voice.channel;
+    var voiceChannel = message.member.voice.channel;
     if (!voiceChannel)
     return message.channel.send("You need to make Villager go brrrr!!");
     if (command === "hurr") {
         
         message.channel.send('HURR!');
-        var voiceChannel = message.member.voice.channel;
         voiceChannel.join()
         .then(connection =>{
             client.on('message', message =>{
