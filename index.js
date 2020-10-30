@@ -52,7 +52,7 @@ client.on('message', message =>{
             const newUserChannel = newMember.voicechannelID;
             const oldUserChannel = oldMember.voicechannelID;
             task = 1;
-            while (task > 1) {
+            while (task > 0) {
             const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
             task = 0;
             }
