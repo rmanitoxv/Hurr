@@ -1,4 +1,3 @@
-
 const Discord = require('discord.js');
 
 
@@ -56,10 +55,10 @@ client.on('message', message =>{
                 const command = args.shift().toLowerCase();
     
                 if (command === 'old'){
-                    message.channel.send(oldMember);
+                    channel.send(oldMember);
                 }
                 if (command === 'new'){
-                    message.channel.send(newMember);
+                    channel.send(newMember);
                 }
             })
            })
