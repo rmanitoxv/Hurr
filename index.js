@@ -37,7 +37,7 @@ client.on('message', message =>{
     const command = args.shift().toLowerCase();
     var voiceChannel = message.member.voice.channel;
     if (!voiceChannel)
-    return message.channel.send("You need to make Villager go brrrr!!");
+    return message.channel.send("You need to join a Voice Channel to make Villager go brrrr!!");
     if (command === "hurr") {
         
         message.channel.send('HURR!');
@@ -73,7 +73,7 @@ client.on('message', message =>{
 
     else if (command === "bye") {
         if (!voiceChannel)
-        return message.channel.send("You need to make Villager go byebye!!");
+        return message.channel.send("You need to join a Voice Channel to make Villager go byebye!!");
        
         voiceChannel.leave();
             }      
