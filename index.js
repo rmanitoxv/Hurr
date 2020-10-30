@@ -73,7 +73,6 @@ client.on('message', message =>{
     }   
 
     else if (command === "bye") {
-        const voiceChannel = message.member.voice.channel;
         if (!voiceChannel)
         return message.channel.send("You need to make Villager go byebye!!");
        
