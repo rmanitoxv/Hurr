@@ -29,13 +29,6 @@ ytdl_opts = {
     }],
 }   
 
-function sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-      currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
-  }
 
 client.on('message', message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
