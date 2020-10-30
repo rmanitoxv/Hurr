@@ -9,7 +9,7 @@ client.once('ready', () => {
     console.log('Villager is online!');
 });
 
-bot.on('ready', () => {
+client.on('ready', () => {
     bot.user.setStatus('available')
     bot.user.setPresence({
         game: {
