@@ -48,9 +48,9 @@ client.on('message', message =>{
         client.on('voiceStateUpdate', (oldMember, newMember) => {
             const newUserChannel = newMember.voicechannelID;
             const oldUserChannel = oldMember.voicechannelID;
-            isReady = false;
+            const isReady = false;
             const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
-            isReady = true;
+            const isReady = true;
             })
        
         }).catch(err => console.log(err));
