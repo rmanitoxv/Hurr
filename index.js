@@ -55,7 +55,7 @@ client.on('message', message =>{
                 const command = args.shift().toLowerCase();
     
                 if (command === 'old'){
-                console.log(oldUserChannel)
+                console.log(oldUserChannel);
                 }
                 if (command === 'new'){
                 message.channel.send(newUserChannel);
