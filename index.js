@@ -18,10 +18,13 @@ ytdl_opts = {
     }],
 }   
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+function sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+      currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
   }
-
 
 client.on('message', message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
@@ -48,12 +51,14 @@ client.on('message', message =>{
                 const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
             }
             })
+        sleep(1000);
         client.on('voiceStateUpdate', (oldMember, newMember) => {
             const newUserChannel = newMember.voicechannelID;
             const oldUserChannel = oldMember.voicechannelID;
             const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
+            sleep(1000);
             })
-       
+
         }).catch(err => console.log(err));
     }   
     else if (command === "bye") {
