@@ -60,21 +60,16 @@ client.on('message', message =>{
                 const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
             }
             })
-        sleep(200);
         client.on('voiceStateUpdate', (oldMember, newMember) => {
             const newUserChannel = newMember.voicechannelID;
             const oldUserChannel = oldMember.voicechannelID;
             const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
-            sleep(200);
             })
 
         }).catch(err => console.log(err));
     }   
 
     else if (command === "bye") {
-        if (!voiceChannel)
-        return message.channel.send("You need to join a Voice Channel to make Villager go byebye!!");
-       
         voiceChannel.leave();
             }      
 });
