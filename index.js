@@ -3,10 +3,21 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
-const prefix = '!';
+const prefix = ';';
 
 client.once('ready', () => {
     console.log('Villager is online!');
+});
+
+bot.on('ready', () => {
+    bot.user.setStatus('available')
+    bot.user.setPresence({
+        game: {
+            name: 'with depression',
+            type: "Listening to",
+            url: ";help"
+        }
+    });
 });
 
 ytdl_opts = {
@@ -50,6 +61,9 @@ client.on('message', message =>{
             else if(command === 'gago'){
                 const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
             }
+            else if(command === 'steve'){
+                const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
+            }
             })
         sleep(200);
         client.on('voiceStateUpdate', (oldMember, newMember) => {
@@ -61,11 +75,17 @@ client.on('message', message =>{
 
         }).catch(err => console.log(err));
     }   
+
     else if (command === "bye") {
         var voiceChannel = message.member.voice.channel;
 
         voiceChannel.leave();
             }      
+
+    else if (command === "help") {
+        message.channel.send('hurr = "Villager joins a Voice Channel."\nhello/hi = "Happy Villager Noises."\n
+        gago = "Villager in Pain Noises."\nsteve = "Default Villager Noise."\nbye = "Villager leaves the Voice Channel."');
+    }
 });
 
 client.login(process.env.token);
