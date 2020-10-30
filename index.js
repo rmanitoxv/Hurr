@@ -51,7 +51,6 @@ client.on('message', message =>{
             console.log(newUserChannel);
             message.channel.send(oldUserChannel);
             })
-           })
        
         }).catch(err => console.log(err));
     }   
