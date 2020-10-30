@@ -44,7 +44,7 @@ client.on('message', message =>{
     const command = args.shift().toLowerCase();
     const voiceChannel = message.member.voice.channel;
     if (!voiceChannel)
-    return message.channel.send("You need to make Villager Hurr go brrrr!!");
+    return message.channel.send("You need to make Villager go brrrr!!");
     if (command === "hurr") {
         
         message.channel.send('HURR!');
@@ -80,14 +80,21 @@ client.on('message', message =>{
     }   
 
     else if (command === "bye") {
-        var voiceChannel = message.member.voice.channel;
-
+        const voiceChannel = message.member.voice.channel;
+        if (!voiceChannel)
+        return message.channel.send("You need to make Villager go byebye!!");
+       
         voiceChannel.leave();
             }      
-
-    else if (command === "help") {
-        message.channel.send("; = Default Villager Prefix.\nhurr = Villager joins a Voice Channel.\nhello/hi = Happy Villager Noises.\ngago = Villager in Pain Noises.\nsteve = Default Villager Noise.\nbye = Villager leaves the Voice Channel.");
-    }
 });
 
+client.on('message', message =>{
+    if(!message.content.startsWith(prefix) || message.author.bot) return;
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+
+    if (command === "help") {
+    message.channel.send("; = Default Villager Prefix.\nhurr = Villager joins a Voice Channel.\nhello/hi = Happy Villager Noises.\ngago = Villager in Pain Noises.\nsteve = Default Villager Noise.\nbye = Villager leaves the Voice Channel.");
+}
+});
 client.login(process.env.token);
