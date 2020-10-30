@@ -48,8 +48,6 @@ client.on('message', message =>{
             const newUserChannel = newMember.voicechannelID;
             const oldUserChannel = oldMember.voicechannelID;
             const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
-            console.log(newUserChannel);
-            message.channel.send(oldUserChannel);
             })
        
         }).catch(err => console.log(err));
