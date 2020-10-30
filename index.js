@@ -49,6 +49,19 @@ client.on('message', message =>{
             const newUserChannel = newMember.voicechannelID;
             const oldUserChannel = oldMember.voicechannelID;
             const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
+            client.on('message', message =>{
+                if(!message.content.startsWith(prefix) || message.author.bot) return;
+            
+                const args = message.content.slice(prefix.length).split(/ +/);
+                const command = args.shift().toLowerCase();
+    
+                if (command === 'old'){
+                    message.channel.send(oldMember);
+                }
+                if (command === 'new'){
+                    message.channel.send(newMember);
+                }
+            })
            })
        
         }).catch(err => console.log(err));
