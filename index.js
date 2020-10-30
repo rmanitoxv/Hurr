@@ -49,13 +49,9 @@ client.on('message', message =>{
             }
             })
         client.on('voiceStateUpdate', (oldMember, newMember) => {
-            task = 1;
-            while (task > 0) {
             const newUserChannel = newMember.voicechannelID;
             const oldUserChannel = oldMember.voicechannelID;
             const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
-            task = 0;
-            }
             })
        
         }).catch(err => console.log(err));
