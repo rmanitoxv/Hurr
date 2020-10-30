@@ -9,16 +9,16 @@ client.once('ready', () => {
     console.log('Villager is online!');
 });
 
-client.on('ready', () => {
-    client.user.setStatus('available')
+client.on("ready", () =>{
+    console.log(`Logged in as ${client.user.tag}!`);
     client.user.setPresence({
+        status: "online",  // You can show online, idle... Do not disturb is dnd
         game: {
-            name: 'with depression',
-            type: "Listening to",
-            url: ";help"
+            name: "!help",  // The message shown
+            type: "PLAYING" // PLAYING, WATCHING, LISTENING, STREAMING,
         }
     });
-});
+ });
 
 ytdl_opts = {
     'format': 'bestaudio/best',
@@ -83,7 +83,7 @@ client.on('message', message =>{
             }      
 
     else if (command === "help") {
-        message.channel.send("hurr = Villager joins a Voice Channel.\nhello/hi = Happy Villager Noises.\ngago = Villager in Pain Noises.\nsteve = Default Villager Noise.\nbye = Villager leaves the Voice Channel.");
+        message.channel.send("; = Default Villager Prefix.\nhurr = Villager joins a Voice Channel.\nhello/hi = Happy Villager Noises.\ngago = Villager in Pain Noises.\nsteve = Default Villager Noise.\nbye = Villager leaves the Voice Channel.");
     }
 });
 
