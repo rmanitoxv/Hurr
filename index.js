@@ -18,6 +18,7 @@ ytdl_opts = {
     }],
 }   
 
+const isReady = true;
 
 client.on('message', message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
@@ -47,7 +48,9 @@ client.on('message', message =>{
         client.on('voiceStateUpdate', (oldMember, newMember) => {
             const newUserChannel = newMember.voicechannelID;
             const oldUserChannel = oldMember.voicechannelID;
+            isReady = false;
             const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
+            isReady = true;
             })
        
         }).catch(err => console.log(err));
