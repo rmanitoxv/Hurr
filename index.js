@@ -83,8 +83,7 @@ client.on('message', message =>{
             }      
 
     else if (command === "help") {
-        message.channel.send('hurr = "Villager joins a Voice Channel."\nhello/hi = "Happy Villager Noises."\n
-        gago = "Villager in Pain Noises."\nsteve = "Default Villager Noise."\nbye = "Villager leaves the Voice Channel."');
+        message.channel.send("hurr = Villager joins a Voice Channel.\nhello/hi = Happy Villager Noises.\ngago = Villager in Pain Noises.\nsteve = Default Villager Noise.\nbye = Villager leaves the Voice Channel.");
     }
 });
 
