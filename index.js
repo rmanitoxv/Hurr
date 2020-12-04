@@ -56,6 +56,9 @@ client.on('message', message =>{
             else if(command === 'gago'){
                 const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
             }
+            else if(command === 'angel'){
+                const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
+            }
             else if(command === 'steve'){
                 const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
             }
@@ -70,6 +73,7 @@ client.on('message', message =>{
     }   
 
     else if (command === "bye") {
+        const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
         voiceChannel.leave();
             }      
 });
