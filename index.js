@@ -29,6 +29,7 @@ ytdl_opts = {
     }],
 }   
 
+count = 0;
 
 client.on('message', message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
@@ -64,9 +65,23 @@ client.on('message', message =>{
             }
             })
         client.on('voiceStateUpdate', (oldMember, newMember) => {
-            const newUserChannel = newMember.voicechannelID;
-            const oldUserChannel = oldMember.voicechannelID;
-            const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
+            if (count < 5){ 
+                x = Math.floor(Math.random() * 3);
+                const newUserChannel = newMember.voicechannelID;
+                const oldUserChannel = oldMember.voicechannelID;
+                if (x === 0){
+                    const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
+                }
+                else if (x === 1){
+                    const dispatcher = connection.play(require("path").join(__dirname, './hehe.mp3'));
+                }
+                else if (x === 2){
+                    const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
+                }
+            }
+            else {
+                await new Promise(r => setTimeout(r, 2000));
+            }
             })
 
         }).catch(err => console.log(err));
