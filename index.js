@@ -78,10 +78,12 @@ client.on('message', message =>{
                 else if (x === 2){
                     const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
                 }
+                count++
             }
             else {
                 setTimeout(function(){ 
-                    message.channel.send("Wait lang you bitch!!");    
+                    message.channel.send("Wait lang you bitch!!");
+                    count = 0;
                 }, 5000);
             }
             })
