@@ -80,7 +80,9 @@ client.on('message', message =>{
                 }
             }
             else {
-                await new Promise(r => setTimeout(r, 2000));
+                setTimeout(function(){ 
+                    message.channel.send("Wait lang you bitch!!");    
+                }, 5000);
             }
             })
 
