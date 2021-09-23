@@ -105,7 +105,19 @@ client.on('message', message =>{
             }
     
     else{
-        message.channel.send("Mama mo "+command);
+        y = Math.floor(Math.random() * 4);
+        if (y==0){
+            message.channel.send("Mama mo "+command);
+        }
+        else if (y==1){
+            message.channel.send("Papa mo "+command);
+        }
+        else if (y==2){
+            message.channel.send("Lolo mo "+command);
+        }
+        else if (y==3){
+            message.channel.send("Lola mo "+command);
+        }
     }
 });
 
