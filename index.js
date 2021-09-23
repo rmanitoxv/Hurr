@@ -105,7 +105,7 @@ client.on('message', message =>{
             }
     
     else{
-        message.channel.send("Mama mo"+command);
+        message.channel.send("Mama mo "+command);
     }
 });
 
