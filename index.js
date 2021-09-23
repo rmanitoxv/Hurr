@@ -37,8 +37,9 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     var voiceChannel = message.member.voice.channel;
-    if (!voiceChannel)
-    return message.channel.send("You need to join a Voice Channel to make Villager go brrrr!!");
+    if (!voiceChannel){
+        return message.channel.send("You need to join a Voice Channel to make Villager go brrrr!!");
+    }
     if (command === "hurr") {
         
         message.channel.send('HURR!');
@@ -100,7 +101,11 @@ client.on('message', message =>{
     else if (command === "bye") {
         const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
         voiceChannel.leave();
-            }      
+            }
+    
+    else{
+        message.channel.send("Mama mo %s!", command);
+    }
 });
 
 client.on('message', message =>{
