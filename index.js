@@ -37,65 +37,66 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     var voiceChannel = message.member.voice.channel;
-    if (!voiceChannel){
-        return message.channel.send("You need to join a Voice Channel to make Villager go brrrr!!");
-    }
     if (command === "hurr") {
-        
-        message.channel.send('HURR!');
-        voiceChannel.join()
-        .then(connection =>{
-            client.on('message', message =>{
-            if(!message.content.startsWith(prefix) || message.author.bot) return;
-            const args = message.content.slice(prefix.length).split(/ +/);
-            const command = args.shift().toLowerCase();
-            if(command === 'hello'){
-                const dispatcher = connection.play(require("path").join(__dirname, './hehe.mp3'));
-            }
-            else if(command === 'hi'){
-                const dispatcher = connection.play(require("path").join(__dirname, './hehe.mp3'));
-            }
-            else if(command === 'gago'){
-                const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
-            }
-            else if(command === 'angel'){
-                const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
-            }
-            else if(command === 'steve'){
-                const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
-            }
-            })
-        client.on('voiceStateUpdate', (oldMember, newMember) => {
-            if (count < 10){ 
-                x = Math.floor(Math.random() * 5);
-                const newUserChannel = newMember.voicechannelID;
-                const oldUserChannel = oldMember.voicechannelID;
-                if (x === 0){
-                    const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
-                }
-                else if (x === 1){
+        if (!voiceChannel){
+            return message.channel.send("You need to join a Voice Channel to make Villager go brrrr!!");
+        }
+        else{
+            message.channel.send('HURR!');
+            voiceChannel.join()
+            .then(connection =>{
+                client.on('message', message =>{
+                if(!message.content.startsWith(prefix) || message.author.bot) return;
+                const args = message.content.slice(prefix.length).split(/ +/);
+                const command = args.shift().toLowerCase();
+                if(command === 'hello'){
                     const dispatcher = connection.play(require("path").join(__dirname, './hehe.mp3'));
                 }
-                else if (x === 2){
+                else if(command === 'hi'){
+                    const dispatcher = connection.play(require("path").join(__dirname, './hehe.mp3'));
+                }
+                else if(command === 'gago'){
                     const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
                 }
-                else if (x === 3){
-                    const dispatcher = connection.play(require("path").join(__dirname, './jaron.mp3'));
+                else if(command === 'angel'){
+                    const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
                 }
-                else if (x === 4){
-                    const dispatcher = connection.play(require("path").join(__dirname, './shesh.mp3'));
+                else if(command === 'steve'){
+                    const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
                 }
-                count++
-            }
-            else {
-                setTimeout(function(){ 
-                    message.channel.send("Wait lang you bitch!!");
-                    count = 0;
-                }, 5000);
-            }
-            })
+                })
+            client.on('voiceStateUpdate', (oldMember, newMember) => {
+                if (count < 10){ 
+                    x = Math.floor(Math.random() * 5);
+                    const newUserChannel = newMember.voicechannelID;
+                    const oldUserChannel = oldMember.voicechannelID;
+                    if (x === 0){
+                        const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
+                    }
+                    else if (x === 1){
+                        const dispatcher = connection.play(require("path").join(__dirname, './hehe.mp3'));
+                    }
+                    else if (x === 2){
+                        const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
+                    }
+                    else if (x === 3){
+                        const dispatcher = connection.play(require("path").join(__dirname, './jaron.mp3'));
+                    }
+                    else if (x === 4){
+                        const dispatcher = connection.play(require("path").join(__dirname, './shesh.mp3'));
+                    }
+                    count++
+                }
+                else {
+                    setTimeout(function(){ 
+                        message.channel.send("Wait lang you bitch!!");
+                        count = 0;
+                    }, 5000);
+                }
+                })
 
-        }).catch(err => console.log(err));
+            }).catch(err => console.log(err));
+        }
     }   
 
     else if (command === "bye") {
@@ -104,7 +105,7 @@ client.on('message', message =>{
             }
     
     else{
-        message.channel.send("Mama mo %s!", command);
+        message.channel.send("Mama mo"+command);
     }
 });
 
