@@ -64,6 +64,9 @@ client.on('message', message =>{
                 else if(command === 'steve'){
                     const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
                 }
+                else if(command === 'jaron'){
+                    const dispatcher = connection.play(require("path").join(__dirname, './fortnite.mp3'));
+                }
                 })
             client.on('voiceStateUpdate', (oldMember, newMember) => {
                 if (count < 10){ 
