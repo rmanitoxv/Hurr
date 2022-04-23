@@ -67,7 +67,7 @@ client.on('message', message =>{
                 })
             client.on('voiceStateUpdate', (oldMember, newMember) => {
                 if (count < 10){ 
-                    x = Math.floor(Math.random() * 5);
+                    x = Math.floor(Math.random() * 6);
                     const newUserChannel = newMember.voicechannelID;
                     const oldUserChannel = oldMember.voicechannelID;
                     if (x === 0){
@@ -84,6 +84,9 @@ client.on('message', message =>{
                     }
                     else if (x === 4){
                         const dispatcher = connection.play(require("path").join(__dirname, './shesh.mp3'));
+                    }
+	   else if (x === 5){
+                        const dispatcher = connection.play(require("path").join(__dirname, './fortnite.mp3'));
                     }
                     count++
                 }
